@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Play Monster Survivors online - An action-packed survival game where you battle endless waves of monsters. No download required!">
+    <meta name="keywords" content="Monster Survivors, online game, survival game, action game, free game">
+    <title>Monster Survivors - Action-Packed Survival Game | pengyi.online</title>
+    <link rel="canonical" href="https://pengyi.online/" />
+    <style>
+        /* CSS Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* Apple-inspired Color Palette */
+        :root {
+            --primary-blue: #0071e3;
+            --secondary-blue: #147ce5;
+            --light-gray: #f5f5f7;
+            --medium-gray: #86868b;
+            --dark-gray: #1d1d1f;
+            --white: #ffffff;
+            --off-white: #fbfbfd;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            line-height: 1.5;
+            color: var(--dark-gray);
+            background-color: var(--off-white);
+        }
+        
+        /* Header Section */
+        header {
+            background-color: var(--white);
+            padding: 1.5rem 0;
+            text-align: center;
+            border-bottom: 1px solid var(--light-gray);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 600;
+            color: var(--dark-gray);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+        
+        .logo:hover {
+            color: var(--primary-blue);
+        }
+        
+        /* Main Container */
+        .container {
+            width: 92%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1.5rem 0;
+        }
+        
+        /* Hero Section */
+        .hero {
+            text-align: center;
+            padding: 3rem 0 2rem;
+            background: linear-gradient(to bottom, var(--white), var(--light-gray));
+            margin-bottom: 2rem;
+            border-radius: 0 0 12px 12px;
+        }
+        
+        h1 {
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
+            font-weight: 700;
+            color: var(--dark-gray);
+            margin-bottom: 1rem;
+            letter-spacing: -0.5px;
+        }
+        
+        .tagline {
+            font-size: clamp(1.2rem, 3vw, 1.5rem);
+            color: var(--medium-gray);
+            max-width: 700px;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .cta-primary {
+            display: inline-block;
+            background-color: var(--primary-blue);
+            color: var(--white);
+            padding: 0.8rem 2rem;
+            border-radius: 24px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            margin-top: 1rem;
+        }
+        
+        .cta-primary:hover {
+            background-color: var(--secondary-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 113, 227, 0.2);
+        }
+        
+        /* Game Section */
+        .game-section {
+            margin-bottom: 3rem;
+        }
+        
+        .game-container {
+            width: 100%;
+            height: 0;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+            background-color: var(--white);
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .game-container:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .game-container iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        
+        /* Game Info Section */
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            position: relative;
+        }
+        
+        .section-title h2 {
+            display: inline-block;
+            background-color: var(--off-white);
+            padding: 0 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .section-title::after {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background-color: var(--light-gray);
+            z-index: 0;
+        }
+        
+        .game-info {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .game-info {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        
+        .info-box {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 1.8rem;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .info-box:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            font-size: 1.8rem;
+            color: var(--dark-gray);
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        h3 {
+            font-size: 1.5rem;
+            color: var(--dark-gray);
+            margin-bottom: 1rem;
+            font-weight: 500;
+        }
+        
+        p {
+            color: var(--medium-gray);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        
+        .feature-list {
+            list-style-type: none;
+            margin-bottom: 1rem;
+        }
+        
+        .feature-list li {
+            padding: 0.7rem 0;
+            color: var(--medium-gray);
+            border-bottom: 1px solid var(--light-gray);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .feature-list li:before {
+            content: '•';
+            color: var(--primary-blue);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+        
+        .feature-list li:last-child {
+            border-bottom: none;
+        }
+        
+        /* Stats Section */
+        .stats-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        @media (min-width: 768px) {
+            .stats-container {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+        
+        .stat-box {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+        }
+        
+        .stat-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-blue);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: var(--medium-gray);
+            font-size: 1rem;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            background-color: var(--white);
+            border-radius: 12px;
+            padding: 3rem 2rem;
+            text-align: center;
+            margin: 3rem 0;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+        }
+        
+        .cta-section h2 {
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: var(--light-gray);
+            padding: 2.5rem 0;
+            color: var(--medium-gray);
+            font-size: 0.95rem;
+            margin-top: 3rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+        
+        @media (min-width: 768px) {
+            .footer-content {
+                grid-template-columns: 2fr 1fr 1fr;
+            }
+        }
+        
+        .footer-logo {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--dark-gray);
+            text-decoration: none;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+        
+        .footer-about p {
+            font-size: 0.95rem;
+        }
+        
+        .footer-links h3, .footer-social h3 {
+            font-size: 1.2rem;
+            margin-bottom: 1rem;
+            color: var(--dark-gray);
+        }
+        
+        .footer-link-list {
+            list-style: none;
+        }
+        
+        .footer-link-list li {
+            margin-bottom: 0.7rem;
+        }
+        
+        .footer-link-list a {
+            color: var(--medium-gray);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .footer-link-list a:hover {
+            color: var(--primary-blue);
+        }
+        
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background-color: var(--white);
+            color: var(--primary-blue);
+            text-decoration: none;
+            transition: all 0.2s;
+        }
+        
+        .social-link:hover {
+            background-color: var(--primary-blue);
+            color: var(--white);
+            transform: translateY(-3px);
+        }
+        
+        .copyright {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid var(--border-color);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <a href="/" class="logo">pengyi.online</a>
+        </div>
+    </header>
+    
+    <section class="hero">
+        <div class="container">
+            <h1>Monster Survivors</h1>
+            <p class="tagline">Battle endless waves of monsters in this action-packed survival adventure</p>
+            <a href="#game" class="cta-primary">Play Now</a>
+        </div>
+    </section>
+    
+    <main class="container">
+        <section id="game" class="game-section">
+            <div class="game-container">
+                <iframe src="https://cloud.onlinegames.io/games/2025/unity/monster-survivors/index-og.html" title="Play Monster Survivors Online" allowfullscreen></iframe>
+            </div>
+        </section>
+        
+        <div class="section-title">
+            <h2>Game Overview</h2>
+        </div>
+        
+        <section class="game-info">
+            <div class="info-box">
+                <h3>About Monster Survivors</h3>
+                <p>Monster Survivors is an intense survival action game where you face waves of increasingly difficult monsters. Use your skills and strategy to survive as long as possible, collect power-ups, and unlock new abilities.</p>
+                <p>With simple controls and addictive gameplay, Monster Survivors offers hours of entertainment for players of all skill levels. How long can you survive in this monster-infested world?</p>
+            </div>
+            
+            <div class="info-box">
+                <h3>Game Features</h3>
+                <ul class="feature-list">
+                    <li>Endless waves of unique monsters to battle</li>
+                    <li>Multiple character classes with different abilities</li>
+                    <li>Unlock powerful upgrades and skills</li>
+                    <li>Intuitive controls for seamless gameplay</li>
+                    <li>Challenging boss encounters</li>
+                    <li>Track your high scores and achievements</li>
+                </ul>
+            </div>
+            
+            <div class="info-box">
+                <h3>How to Play</h3>
+                <p>Use WASD or arrow keys to move your character. Attacks happen automatically when enemies are in range. Collect experience orbs to level up and choose new abilities. Avoid being surrounded and plan your escape routes carefully.</p>
+                <p>The longer you survive, the more powerful you become - but the monsters also grow stronger! Can you become the ultimate survivor?</p>
+            </div>
+            
+            <div class="info-box">
+                <h3>Tips & Strategies</h3>
+                <p>Keep moving to avoid being cornered by monster hordes. Prioritize abilities that complement your playstyle. Don't neglect defensive upgrades as you progress further into the game.</p>
+                <p>Learn monster patterns and behaviors to anticipate their movements. Remember that sometimes retreating is the best strategy for long-term survival!</p>
+            </div>
+        </section>
+        
+        <div class="stats-container">
+            <div class="stat-box">
+                <div class="stat-value">10+</div>
+                <div class="stat-label">Character Classes</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value">50+</div>
+                <div class="stat-label">Unique Monsters</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value">100+</div>
+                <div class="stat-label">Unique Abilities</div>
+            </div>
+            <div class="stat-box">
+                <div class="stat-value">∞</div>
+                <div class="stat-label">Hours of Fun</div>
+            </div>
+        </div>
+        
+        <div class="cta-section">
+            <h2>Ready for the Challenge?</h2>
+            <p>Test your skills against endless hordes of monsters. How long can you survive?</p>
+            <a href="#game" class="cta-primary">Play Monster Survivors Now</a>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-about">
+                    <a href="/" class="footer-logo">pengyi.online</a>
+                    <p>Your destination for the best online games. Monster Survivors is just the beginning - stay tuned for more exciting titles coming soon!</p>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-link-list">
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">Contact Us</a></li>
+                        <li><a href="#">About</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-social">
+                    <h3>Connect With Us</h3>
+                    <p>Follow us on social media for updates and new games</p>
+                    <div class="social-icons">
+                        <a href="#" class="social-link">T</a>
+                        <a href="#" class="social-link">F</a>
+                        <a href="#" class="social-link">I</a>
+                        <a href="#" class="social-link">Y</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2023 pengyi.online - All rights reserved</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
